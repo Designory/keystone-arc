@@ -1,0 +1,52 @@
+Arguments: 
+  /usr/local/Cellar/node/13.3.0/bin/node /usr/local/Cellar/yarn/1.21.1/libexec/bin/yarn.js install
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.21.1
+
+Node version: 
+  13.3.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://github.com/timsuchanek/codemirror-graphql: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+      at Request.module.exports.Request.onRequestResponse (/usr/local/Cellar/yarn/1.21.1/libexec/lib/cli.js:141428:24)
+      at ClientRequest.emit (events.js:219:5)
+      at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:598:27)
+      at HTTPParser.parserOnHeadersComplete (_http_common.js:113:17)
+      at HTTPParser.execute (<anonymous>)
+      at TLSSocket.socketOnData (_http_client.js:467:22)
+      at TLSSocket.emit (events.js:219:5)
+      at addChunk (_stream_readable.js:332:12)
+      at readableAddChunk (_stream_readable.js:307:11)
+      at TLSSocket.Readable.push (_stream_readable.js:241:10)
+
+npm manifest: 
+  {
+    "name": "keystone-arc",
+    "private": true,
+    "workspaces": [
+      "packages/*"
+    ],
+    "scripts": {
+      "setup-dev": "yarn && yarn bootstrap && yarn link-all && yarn build",
+      "bootstrap": "lerna bootstrap",
+      "build": "lerna run build",
+      "link-all": "yarn unlink-all && lerna exec --parallel yarn link",
+      "unlink-all": "lerna exec --parallel --bail=false yarn unlink"	
+    },
+    "devDependencies": {
+      "lerna": "^3.19.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

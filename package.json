@@ -1,0 +1,17 @@
+{
+  "name": "keystone-arc",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "setup-dev": "yarn && yarn bootstrap && yarn link-all && yarn build",
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build",
+    "link-all": "yarn unlink-all && lerna exec --parallel yarn link",
+    "unlink-all": "lerna exec --parallel --bail=false yarn unlink"	
+  },
+  "devDependencies": {
+    "lerna": "^3.19.0"
+  }
+}
